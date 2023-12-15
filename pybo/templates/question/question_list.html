@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container my-3">
+  <table class="table">
+    <thead>
+      <tr class="table-dark">
+        <th>No.</th>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if q_list %} {% for q in q_list %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>
+          <a href="{{ url_for('question.detail', qid=q.id) }}"
+            >{{ q.subject }}</a
+          >
+        </td>
+        <td>{{ q.create_date }}</td>
+      </tr>
+      {% endfor %} {% else %}
+      <tr>
+        <td colspan="3">No Questions.</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <a href="{{ url_for('question.create') }}" class="btn btn-primary"
+    >New Post</a
+  >
+</div>
+{% endblock %}

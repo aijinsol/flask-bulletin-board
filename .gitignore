@@ -1,0 +1,10 @@
+# Python bytecode cache files
+*.pyc
+__pycache__/
+
+# macOS system files
+.DS_Store
+
+# Database related files
+pybo.db
+migrations/
